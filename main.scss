@@ -1,0 +1,282 @@
+/* main.scss */
+
+@import 'reset';
+@import url('http://fonts.googleapis.com/css?family=Lato:100,400,700'); /* font-family: 'Lato', sans-serif; */
+@import url('http://fonts.googleapis.com/css?family=Oswald'); /* font-family: 'Oswald', sans-serif; */
+@import url('http://fonts.googleapis.com/css?family=Merriweather:400,300,700,900'); /* font-family: 'Merriweather', serif; */
+@import url('http://fonts.googleapis.com/css?family=Lora:400italic,700italic'); /* font-family: 'Lora', serif; */
+
+
+/* Base 
+*** ******************* ******************* *************** ****** ****** */
+html { font-size: 100%; /* 16px */ }
+body { background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/85829/purple_block_2.jpg') 0 0 no-repeat; }
+
+
+/* Mixin: Rotate
+*** ******************* ******************* *************** ****** ****** */
+@mixin rotate( $degrees ) {
+  -webkit-transform: rotate(#{$degrees}deg);
+  -moz-transform: rotate(#{$degrees}deg);
+  -ms-transform: rotate(#{$degrees}deg);
+  -o-transform: rotate(#{$degrees}deg);
+  transform: rotate(#{$degrees}deg);
+
+  filter:  progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=#{cos($degrees)}, M12=-#{sin($degrees)}, M21=#{sin($degrees)}, M22=#{cos($degrees)});
+  -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=#{cos($degrees)}, M12=-#{sin($degrees)}, M21=#{sin($degrees)}, M22=#{cos($degrees)})";
+  zoom: 1;
+ }
+
+/* Mixin: Box Sizing */
+@mixin box-sizing($box-model) {
+  -webkit-box-sizing: $box-model; // Safari <= 5
+     -moz-box-sizing: $box-model; // Firefox <= 19
+          box-sizing: $box-model;
+}
+
+/* Container
+*** ******************* ******************* *************** ****** ****** */
+section { width: 75%; /* 960 (originally 960) / 1280 */ display: block;  margin: 0 auto; position: relative; }
+section.row-1 { height: 1124px; }
+section.row-2 { height: 513px; }
+section.row-4 { height: 731px; }
+section.row-5 { height: 512px; }
+
+
+/* Header
+*** ******************* ******************* *************** ****** ****** */
+.header {
+   width: 100%; height: 481px; display: block; position: absolute; top: 0; left: 0; z-index: 2;   
+  /* Header: Title */
+  .title { width: 550px; margin: 0 0 0 -40px; color: #fff; font: 100 17.438rem /* 279px */ 'Lato', sans-serif; text-transform: uppercase; line-height: 215px; letter-spacing: 12px; overflow: hidden; position: absolute; top: 40px; left: 0; } 
+  /* Header: Subtitle */
+  .subtitle { font: 400 0.750rem /* 12px */ 'Lora', serif; font-style: italic; text-transform: uppercase; letter-spacing: 2px; color: #b0aeb8; position: absolute; top: 140px; right: 0; }
+}
+
+
+/* Positioning Relatives
+*** ******************* ******************* *************** ****** ****** */
+.positioning-relatives {
+  width: 52.708333333%; /* 506 (originally 506) / 960 */ padding-top: 380px; margin: 160px 0 0; position: absolute; top: 0; right: 0;
+  /* Positioning Relatives: Photo */
+  .img-relative-photo { width: 876px; height: 571px; display: block; background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/85829/positioning-relatives.png') 0 0 no-repeat; position: absolute; top: 1px; left: -182px; z-index: -1; }
+  /* Positioning Relatives: Title */
+  .title {
+    margin-bottom: 17px; font: normal 4.688rem /* 75px */ 'Oswald', sans-serif; color: #fdcd84; line-height: 4.938rem; text-transform: uppercase;
+    /* Positioning Relatives: Title: Tiny */
+    .tiny { display: block; font: normal 0.813rem /* 13px */ 'Merriweather', serif; text-transform: uppercase; color: #cbb8a0; }
+  }
+  /* Positioning Relatives: Parapraghs */
+  p { font: 300 1.563rem /* 25px */ 'Merriweather', serif; line-height: 1.33em; letter-spacing: -1px; color: #000; }
+}
+
+
+/* Box Model
+*** ******************* ******************* *************** ****** ****** */
+.box-model {
+  width: 44.166666667%; /* 424 (originally 424) / 960 */ padding: 447px 0 0; display: block; position: absolute; top: 0; left: -7px; z-index: 2;
+  /* Box Model: Barbie */
+  .img-barbie { width: 358px; height: 314px; display: block; margin: 0 0 15px -56px; background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/85829/box-model.png') 0 0 no-repeat; }
+  /* Box Model: Title */
+  .title { display: block; margin: 0 0 9px; font: 700 2.250rem /* 36px */ 'Lora', sans-serif; font-style: italic; text-align: center; color: #5f5d66; }
+  /* Box Model: Paragragh */
+  p { font: normal 1.188rem /* 19px */ 'Lato', sans-serif; text-align: center; line-height: 139%; color: #6e6c77; }
+}
+
+
+/* Staying Afloat
+*** ******************* ******************* *************** ****** ****** */
+.staying-afloat {
+  width: 13.541666667%; /* 130 (originally 130) / 960 */ height: 100%; display: block; text-align: right; position: absolute; left: 10px; top: 0;
+  /* Staying Afloat: Title */
+  .title { margin: 0 0 6px; font: normal 1.313rem /* 21px */ 'Oswald', sans-serif; letter-spacing: -.5px; color: #24795a; }
+  /* Staying Afloat: Paragraph */
+  p { font: normal 0.875rem /* 14px */ 'Lato', sans-serif; line-height: 1.188rem; letter-spacing: -.5px;  color: #464646; }
+  /* Staying Afloat: Boots, Ya'll */
+  .img-boots { width: 200px; height: 200px; display: block; background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/85829/staying_afloat.png') 0 0 no-repeat; position: absolute; right: -35px; bottom: -13px; z-index: 2; }
+}
+
+
+/* List Style
+*** ******************* ******************* *************** ****** ****** */
+.list-style {
+  width: 83.333333333%; /* 800 (originally 800) / 960 */ display: block; position: absolute; right: 0; top: 3px;
+  /* List Style: Title */
+  .title {
+    height: 32px; padding-top: 12px; border-top: 1px solid #e5e5e5; border-bottom: 1px solid #e5e5e5; margin-bottom: 15px; font: normal 0.938rem /* 15px */ 'Oswald', sans-serif; letter-spacing: .5px; text-align: center; color: #a97d35; text-transform: uppercase;
+    /* List Style: Title: Tiny */
+    .tiny { margin-left: 5px; color: #e0c167; font: normal 0.750rem /* 12px */ 'Lato', sans-serif; vertical-align: top; line-height: 2em; }
+  }
+  /* List Style: List Items */
+  .list-items { width: 100%; height: 393px; display: block; }
+  /* List Style: Item */
+  .item {
+    width: 20%; /* 160 (originally 160) / 800 */ height: 100%; border-right: 1px solid #e5e5e5; display: block; float: left; font: normal 1.750rem 'Oswald', sans-serif; @include box-sizing(border-box); color: #e0e0e0; position: relative;
+    /* List Style: Last Item */ 
+    &.is-last { border-right: 0; }
+    /* List Style: Item: Paragraph */ 
+    p { width: 100%; text-align: center; line-height: 1.3em; position: absolute; bottom: 0; left: 0; }
+  }
+  /* List Style: Bullet Image */
+  .img-bullet {
+    display: block; position: absolute; bottom: 110px; left: 50%;
+    /* List Style: Bullet Image: Remmington */
+    &.size-223-remington   { width: 84px; height: 218px; margin: 0 0 5px -30px; background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/85829/223-remington-69gr.png') 0 0 no-repeat; }
+    /* List Style: Bullet Image: Winchester */
+    &.size-308-winchester  { width: 92px; height: 273px; margin: 0 0 1px -41px; background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/85829/208-winchester-168gr.png') 0 0 no-repeat; }
+    /* List Style: Bullet Image: Russian */
+    &.size-762-russian     { width: 98px; height: 217px; margin: 0 0 -2px -40px; background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/85829/762-russian-154gr.png') 0 0 no-repeat; }
+    /* List Style: Bullet Image: Thumper 220 */
+    &.size-762-thumper-220 { width: 85px; height: 217px; margin-left: -38px; background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/85829/762-thumper-220gr.png') 0 0 no-repeat; }
+    /* List Style: Bullet Image: Thumper 240 */
+    &.size-762-thumper-240 { width: 87px; height: 221px; margin-left: -41px; background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/85829/762-thumper-240gr.png') 0 0 no-repeat; }
+  }
+  /* List Style: Size 32 */
+  .size-31 { font-size: 1.938rem; /* 31px */ }
+  /* List Style: Size 32 */
+  .size-32 { font-size: 2.000rem; /* 32px */ }
+  /* List Style: Size 38 */
+  .size-38 { font-size: 2.375rem; /* 38px */ }
+  /* List Style: Size 39 */
+  .size-39 { font-size: 2.438rem; /* 39px */ }
+  /* List Style: Size 40 */
+  .size-40 { font-size: 2.500rem; /* 40px */ }
+  /* List Style: Size 79 */
+  .size-79 { font-size: 4.938rem; /* 79px */ }
+  /* List Style: Size 87 */
+  .size-87 { font-size: 5.438rem; /* 87px */ }
+}
+
+
+/* Famous Blocks
+*** ******************* ******************* *************** ****** ****** */
+.famous-blocks {
+  /* Famous Blocks: Title */
+  .title { height: 82px; padding: 34px 0 0; display: block; text-align: center; font: normal 3.063rem /* 49px */ 'Oswald', sans-serif; line-height: 1em; text-transform: uppercase; color: #fff; background: #524741; }
+  /* Famous Blocks: Dudes */
+  .img-abbey-road { width: 100%; height: 635px; display: block; background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/85829/abbey-road_1.jpg') 0 0 no-repeat; position: absolute; top: 116px; left: 0; z-index: 2; }
+  /* Famous Blocks: Dudes */
+  #map-abbey-road { width: 100%; height: 635px; display: block; }
+  /* Famous Blocks: Paragraph */
+  p { padding: 24px; font: 300 1.625rem /* 26px */ 'Merriweather', serif; line-height: 135%; background: #71625a; color: #fff; }
+  /* Famous Blocks: Source */
+  .source {
+    padding-top: 0; color: #b8b1ad; font-size: 1.125em /* 18px */;
+    a { text-decoration: none; color: inherit; }
+  }
+}
+
+
+/* Bottom Line
+*** ******************* ******************* *************** ****** ****** */
+.bottom-line {
+  width: 73.958333333%; /* 710 (originally 710) / 960 */ padding: 148px 0 0; display: block; position: relative; float: left;
+  /* Bottom Line: People Image */
+  .img-people { width: 721px; height: 152px; display: block; background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/85829/border-bottom-line.jpg') 0 0 no-repeat; position: absolute; top: 0; left: 7px; }
+  /* Bottom Line: Title */
+  .title { border-bottom: 21px solid #000; margin-bottom: 7px; font: normal 5.125rem /* 82px */ 'Oswald', sans-serif; text-transform: uppercase; }
+  /* Bottom Line: Subtitle */
+  .subtitle { padding-bottom: 12px; border-bottom: 3px solid #000; margin-bottom: 12px; font: normal 2.438rem /* 39px */ 'Oswald', sans-serif; }
+  /* Bottom Line: Paragraph */
+  p {
+    font: normal 1.375rem /* 22px */ 'Merriweather', serif; letter-spacing: -.5px; line-height: 129%;
+    /* Bottom Line: Paragraph: Bold */
+    .bold { font-weight: 900; } 
+  }
+}
+
+
+/* Movie Review
+*** ******************* ******************* *************** ****** ****** */
+.movie-review { 
+  width: 23.4375%; /* 225 (originally 225) / 960 */ height: 516px; padding: 199px 0 0; display: block; margin-top: 15px; font-family: 'Oswald', sans-serif; color: #fff; background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/85829/bg-half-circle_1.png') 50% 100% #3a83bb no-repeat; position: relative; float: right;
+  /* Movie Review: Cover Art */
+  .img-cover-art { width: 298px; height: 289px; display: block; margin: 0 0 0 -146px; background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/85829/transformers.png') 0 0 no-repeat; position: absolute; top: -66px; left: 50%; }
+  /* Movie Review: Title */
+  .title {
+    width: 84.888888889%; /* 191 (originally 191) / 225 */ padding-bottom: 10px; border-bottom: 8px solid #619bc7; display: block; margin: 0 auto 15px; text-transform: uppercase; font-size: 1.938rem /* 31px */; line-height: 100%;
+    /* Movie Review: Title: Smaller */
+    .smaller { font-size: 1.313rem /* 21px */; white-space: nowrap; }
+  }
+  /* Movie Review: Review */
+  .review { width: 84.888888889%; /* 191 (originally 191) / 225 */; display: block; margin: 0 auto 22px; font: 400 1rem /* 16px */ 'Lora', serif; line-height: 1.500em; font-style: italic; }
+  /* Movie Review: Rating Wrapper */
+  .rating-wrapper {
+     height: 74px; padding: 22px 7.555555556% 26px; /* 17 (originally 17) / 225 */ border-top: 2px dashed #000; border-bottom: 2px dashed #000; display: block;
+    /* Movie Review: Rating Wrapper: Tomato Rating */
+    .tomato-rating {
+      width: 50%; display: block; color: #619bc7; text-transform: uppercase; font-size: 0.875rem /* 14px */; letter-spacing: -.4px; float: left;
+      /* Movie Review: Rating Wrapper: Tomato Rating: Rating */
+      .rating { margin-top: 2px; display: block; font-size: 2.000rem /* 32px */; line-height: 1.063em; }
+    }
+    /* Movie Review: Rating Wrapper: Percent */
+    .percent {
+      width: 50%; display: block; margin: -5px 0 11px; font-size: 3.375rem /* 54px */; line-height: 1em; letter-spacing: -1px; text-align: right; color: #fff; float: right;
+      /* Movie Review: Rating Wrapper: Percent: Symbol */
+      .symbol { font-size: 2.625rem /* 42px */; }
+    }
+    /* Movie Review: Rating Wrapper: Percent Bar */
+    .percent-bar {
+      width: 100%; height: 8px; display: block; background: #619cc9; overflow: hidden;
+      /* Movie Review: Rating Wrapper: Percent Bar: Marker */
+      .marker {
+        height: 100%; display: block; background: #fff;
+        /* Movie Review: Rating Wrapper: Percent Bar: Marker: 20% */
+        &.is-20 { width: 20%; }
+      }
+    }
+  }
+  /* Movie Review: Premiere Wrapper */
+  .pemiere-wrapper {
+    width: 89.777777778%; /* 202 (originally 202) / 225 */ display: block; margin: 0 auto; text-transform: uppercase; text-align: center; font-family: 'Oswald', sans-serif;
+    /* Movie Review: Premiere Title */
+    .title-premiere { 
+      width: 100%; height: 13px; display: block; margin: 21px auto 8px; text-align: center;  color: #619cc9; background: #619cc9;
+      /* Movie Review: Premiere Title: Inside */
+      .inside { padding: 0 5.235602094%; /* 10 (originally 10) / 191 */ display: inline-block; margin: 0 auto; background: #3a83bb; }
+    }
+    /* Movie Review: Location */
+    .location { display: block; margin-bottom: 5px; font-size: 1.688rem /* 27px */; white-space: nowrap; }
+    /* Movie Review: Country */
+    .country  { display: block; margin-bottom: 5px; font-size: 1.750rem /* 28px */; color: #88aed1; }
+    /* Movie Review: Date */
+    .date     { display: block; font-size: 2.438rem /* 39px */; }
+  }
+}
+
+
+/* Overflow
+*** ******************* ******************* *************** ****** ****** */
+.overflow {
+  width: 100%; color: #5e6c74; font: 400 1rem /* 16px */ 'Lora', serif; line-height: 1.625em; letter-spacing: -.5px; font-style: italic;
+  /* Overflow: Title */
+  .title { width: 1058px; height: 407px; display: block; margin: -20px 0 0 -23px; background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/85829/overflow.png') 0 0; text-indent: -999em; position: absolute; top: 0; left: 0; }
+  /* Overflow: Intro Paragraph */
+  .p-intro   { width: 72.916666667%; /* 700 (originally 700) / 960 */ display: block; margin: 161px 0 0; text-align: right; float: right; clear: right; @include rotate(2.1); }
+  /* Overflow: Middle Paragraph */
+  .p-middle  { width: 69.791666667%; /* 670 (originally 670) / 960 */ display: block; margin: -6px 0 28px; float: left; clear: left; @include rotate(-0.73); }
+  /* Overflow: Closing Paragraph */
+  .p-closing { width: 72.395833333%; /* 695 (originally 695) / 960 */ display: block; margin: 0 0 0 13.75%; /* 132 (originally 132) / 960 */ float: left; clear: both; @include rotate(0.94); }
+  /* Overflow: Bold */
+  .bold { font-weight: 700; }
+}
+
+
+/* Footer
+*** ******************* ******************* *************** ****** ****** */
+.footer {
+  width: 100%; height: 57px; padding: 19px 0 60px; border-top: 1px solid #e5e5e5; clear: both;
+  /* Footer: Title */
+  .title {
+    float: left; color: #8c8c8c; font: normal 1.063rem /* 17px */ 'Lato', sans-serif; letter-spacing: -.75px;
+    /* Footer: Title: Darker */
+    .darker { color: #666; }
+  }
+  /* Footer: Address */
+  address {
+    margin-top: 4px; color: #989898; font: 400 0.813rem /* 13px */ 'Merriweather', serif; line-height: 1.188rem; text-align: right; float: right;
+    /* Footer: Address: Bold */
+    .bold { font-weight: 700; } 
+  }
+  
+}
